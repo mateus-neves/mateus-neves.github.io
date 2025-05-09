@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Dia das Mães!</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;500&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(45deg, #ffb6c1, #ff69b4);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem 3rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            max-width: 500px;
+            margin: 20px;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: #ff69b4;
+            margin: 0 0 1rem 0;
+        }
+
+        .message {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+
+        .hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .heart {
+            position: absolute;
+            color: #ff69b4;
+            animation: float 3s infinite;
+            opacity: 0;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+        }
+
+        .flowers {
+            position: absolute;
+            width: 100px;
+            opacity: 0.8;
+        }
+
+        .flowers.left {
+            left: -50px;
+            bottom: -30px;
+            transform: rotate(-30deg);
+        }
+
+        .flowers.right {
+            right: -50px;
+            top: -30px;
+            transform: rotate(30deg);
+        }
+
+        button {
+            background: #ff69b4;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.05);
+            background: #ff1493;
+        }
+
+        .hidden-message {
+            display: none;
+            margin-top: 1rem;
+            font-style: italic;
+            color: #ff69b4;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="card">
+        <div class="hearts">
+            <div class="heart" style="left: 10%; animation-delay: 0.5s">❤️</div>
+            <div class="heart" style="left: 30%; animation-delay: 1s">❤️</div>
+            <div class="heart" style="left: 50%; animation-delay: 1.5s">❤️</div>
+            <div class="heart" style="left: 70%; animation-delay: 2s">❤️</div>
+            <div class="heart" style="left: 90%; animation-delay: 2.5s">❤️</div>
+        </div>
+
+        <img src="https://cdn-icons-png.flaticon.com/512/679/679821.png" alt="Flores" class="flowers left">
+        <img src="https://cdn-icons-png.flaticon.com/512/679/679821.png" alt="Flores" class="flowers right">
+
+        <h1>Feliz Dia das Mães! 💐</h1>
+
+        <div class="message">
+            <p>Mãe, você é...</p>
+            <p>💖 A estrela que ilumina meus dias<br>
+                🌸 O perfume das flores mais belas<br>
+                🤗 O abraço que conforta a alma<br>
+                🌟 Meu maior amor em forma de mulher</p>
+            <p>Hoje e sempre, saiba que você é<br>
+                a pessoa mais especial do mundo para mim!</p>
+        </div>
+
+        <button onclick="showSecretMessage()">Toque aqui 😊</button>
+        <div id="secretMessage" class="hidden-message">
+            Te amo mais que tudo, mamãe! 🥰<br>
+            Você é minha heroína! 💐
+        </div>
+    </div>
+
+    <script>
+        function showSecretMessage() {
+            const message = document.getElementById('secretMessage');
+            message.style.display = 'block';
+
+            // Adiciona corações flutuantes extras
+            for (let i = 0; i < 5; i++) {
+                const heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.style.left = Math.random() * 90 + '%';
+                heart.style.animationDelay = Math.random() * 2 + 's';
+                heart.innerHTML = '❤️';
+                document.querySelector('.hearts').appendChild(heart);
+            }
+        }
+    </script>
+</body>
+
+</html>
