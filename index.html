@@ -4,170 +4,216 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feliz Dia das Mães!</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;500&display=swap"
-        rel="stylesheet">
+    <title>O Legado de Skyrim</title>
     <style>
-        body {
-            margin: 0;
-            padding: 0;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: linear-gradient(45deg, #ffb6c1, #ff69b4);
-            font-family: 'Poppins', sans-serif;
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #c0392b;
+            --accent-color: #d35400;
+            --text-color: #ecf0f1;
         }
 
-        .card {
-            background: rgba(255, 255, 255, 0.9);
-            padding: 2rem 3rem;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Merriweather', serif;
+            line-height: 1.6;
+            background-color: #1a1a1a;
+            color: var(--text-color);
+        }
+
+        .blog-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 3fr 1fr;
+            gap: 40px;
+        }
+
+        header {
+            background: linear-gradient rgba(0, 0, 0, 0.7), url('https://images.unsplash.com/photo-1586810724476-c294fb7ac01b') center/cover;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+            border-bottom: 3px solid var(--secondary-color);
+        }
+
+        .header-content {
             text-align: center;
-            position: relative;
-            max-width: 500px;
-            margin: 20px;
+            padding: 20px;
         }
 
         h1 {
-            font-family: 'Dancing Script', cursive;
-            font-size: 2.5rem;
-            color: #ff69b4;
-            margin: 0 0 1rem 0;
+            font-size: 3.5rem;
+            color: var(--text-color);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+            font-family: 'MedievalSharp', cursive;
         }
 
-        .message {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: #333;
-            margin-bottom: 1.5rem;
-        }
-
-        .hearts {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            pointer-events: none;
-        }
-
-        .heart {
-            position: absolute;
-            color: #ff69b4;
-            animation: float 3s infinite;
-            opacity: 0;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(0);
-                opacity: 0;
-            }
-
-            50% {
-                opacity: 1;
-            }
-
-            100% {
-                transform: translateY(-100px);
-                opacity: 0;
-            }
-        }
-
-        .flowers {
-            position: absolute;
-            width: 100px;
-            opacity: 0.8;
-        }
-
-        .flowers.left {
-            left: -50px;
-            bottom: -30px;
-            transform: rotate(-30deg);
-        }
-
-        .flowers.right {
-            right: -50px;
-            top: -30px;
-            transform: rotate(30deg);
-        }
-
-        button {
-            background: #ff69b4;
-            color: white;
-            border: none;
-            padding: 10px 25px;
-            border-radius: 25px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-
-        button:hover {
-            transform: scale(1.05);
-            background: #ff1493;
-        }
-
-        .hidden-message {
-            display: none;
-            margin-top: 1rem;
+        .post-meta {
             font-style: italic;
-            color: #ff69b4;
+            color: #bdc3c7;
+            margin-bottom: 40px;
         }
+
+        article {
+            background: rgba(44, 62, 80, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            color: var(--secondary-color);
+            margin: 25px 0;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 15px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        blockquote {
+            border-left: 4px solid var(--accent-color);
+            padding: 20px;
+            margin: 30px 0;
+            background: rgba(0, 0, 0, 0.3);
+            font-style: italic;
+        }
+
+        .sidebar {
+            background: var(--primary-color);
+            padding: 20px;
+            border-radius: 10px;
+            height: fit-content;
+        }
+
+        .sidebar-widget {
+            margin-bottom: 30px;
+        }
+
+        .widget-title {
+            color: var(--accent-color);
+            margin-bottom: 15px;
+        }
+
+        .game-info-list {
+            list-style: none;
+        }
+
+        .game-info-list li {
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.2);
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        .continue-reading {
+            display: inline-block;
+            padding: 12px 25px;
+            background: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .continue-reading:hover {
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .blog-container {
+                grid-template-columns: 1fr;
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            header {
+                height: 40vh;
+            }
+        }
+
+        /* Fontes externas */
+        @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=MedievalSharp&display=swap');
     </style>
 </head>
 
 <body>
-    <div class="card">
-        <div class="hearts">
-            <div class="heart" style="left: 10%; animation-delay: 0.5s">❤️</div>
-            <div class="heart" style="left: 30%; animation-delay: 1s">❤️</div>
-            <div class="heart" style="left: 50%; animation-delay: 1.5s">❤️</div>
-            <div class="heart" style="left: 70%; animation-delay: 2s">❤️</div>
-            <div class="heart" style="left: 90%; animation-delay: 2.5s">❤️</div>
+    <header>
+        <div class="header-content">
+            <h1>Skyrim: A Jornada sem Fim</h1>
+            <p class="post-meta">Por Ulfric Stormcloak | 20 de Sun's Dawn, 4E 202</p>
         </div>
+    </header>
 
-        <img src="https://cdn-icons-png.flaticon.com/512/679/679821.png" alt="Flores" class="flowers left">
-        <img src="https://cdn-icons-png.flaticon.com/512/679/679821.png" alt="Flores" class="flowers right">
+    <div class="blog-container">
+        <article>
+            <h2>O Mundo de Tamriel</h2>
+            <p>Em meio aos picos nevados de Tamriel, Skyrim se ergue como um testamento à grandiosidade dos RPGs
+                modernos. Desde seu lançamento em 2011, este épico nórdico continua a cativar jogadores com sua
+                combinação única de liberdade exploratória e narrativa profundamente imersiva.</p>
 
-        <h1>Feliz Dia das Mães! 💐</h1>
+            <blockquote>
+                "Os ventos frios de Skyrim carregam histórias de heroísmo, traição e dragões ancestrais. Cada caverna
+                escondida e ruína antiga conta uma história que espera ser descoberta."
+            </blockquote>
 
-        <div class="message">
-            <p>Mãe, você é...</p>
-            <p>💖 A estrela que ilumina meus dias<br>
-                🌸 O perfume das flores mais belas<br>
-                🤗 O abraço que conforta a alma<br>
-                🌟 Meu maior amor em forma de mulher</p>
-            <p>Hoje e sempre, saiba que você é<br>
-                a pessoa mais especial do mundo para mim!</p>
-        </div>
+            <h2>A Arte da Customização</h2>
+            <p>Com dez raças distintas e um sistema de habilidades sem classes, Skyrim oferece uma experiência única
+                para cada jogador. Desde poderosos guerreiros até astutos arqueiros furtivos, as possibilidades de
+                construção de personagem são limitadas apenas pela imaginação.</p>
 
-        <button onclick="showSecretMessage()">Toque aqui 😊</button>
-        <div id="secretMessage" class="hidden-message">
-            Te amo mais que tudo, mamãe! 🥰<br>
-            Você é minha heroína! 💐
-        </div>
+            <h2>Modding: A Alma da Longevidade</h2>
+            <p>A comunidade de modders transformou Skyrim em um verdadeiro playground digital. Com mais de 60,000 mods
+                disponíveis, os jogadores podem:</p>
+            <ul class="game-info-list">
+                <li>Reimaginar completamente os gráficos</li>
+                <li>Adicionar novas quests e territórios</li>
+                <li>Ajustar mecânicas de combate</li>
+                <li>Criar histórias completamente novas</li>
+            </ul>
+
+            <a href="#" class="continue-reading">Leia mais sobre modding</a>
+        </article>
+
+        <aside class="sidebar">
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Ficha Técnica</h3>
+                <ul class="game-info-list">
+                    <li>Lançamento: 11/11/2011</li>
+                    <li>Desenvolvedora: Bethesda</li>
+                    <li>Gênero: RPG de Ação</li>
+                    <li>Plataformas: PC, Consoles</li>
+                    <li>Engine: Creation Engine</li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3 class="widget-title">Curiosidades</h3>
+                <ul class="game-info-list">
+                    <li>+ 60 milhões de cópias vendidas</li>
+                    <li>340 horas de diálogos gravados</li>
+                    <li>Maior speedrun: 23 minutos</li>
+                    <li>+ 300 livros no jogo</li>
+                </ul>
+            </div>
+        </aside>
     </div>
-
-    <script>
-        function showSecretMessage() {
-            const message = document.getElementById('secretMessage');
-            message.style.display = 'block';
-
-            // Adiciona corações flutuantes extras
-            for (let i = 0; i < 5; i++) {
-                const heart = document.createElement('div');
-                heart.className = 'heart';
-                heart.style.left = Math.random() * 90 + '%';
-                heart.style.animationDelay = Math.random() * 2 + 's';
-                heart.innerHTML = '❤️';
-                document.querySelector('.hearts').appendChild(heart);
-            }
-        }
-    </script>
 </body>
 
 </html>
